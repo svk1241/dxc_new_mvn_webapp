@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:c="http://www.springframework.org/schema/c"
+   xmlns:util="http://www.springframework.org/schema/util"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context= "http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/util
+                        http://www.springframework.org/schema/util/spring-util.xsd 
+                         http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd ">
+                         
+                         
+    <!--  <import resource="Beans2.xml"/>    -->                   
+                        
+     <bean id="w1"   class="com.dxc.springcoreapp.bean.Wisher"  lazy-init="true"  init-method="initWisher"   destroy-method="destroyWisher" >
+         <property name="message"    value="Welcome to Spring Framework"/>
+     </bean>
+     
+    <!--<bean id="add1"  class="com.dxc.springcoreapp.bean.Address" p:hno="4-4-18" p:streetName="Temple street"
+                                             p:city="yerravaram" p:state="Andhra Pradesh"/>-->
+         <!--  <property name="hno"  value="4-4-18"/>
+          <property name="streetName"  value="Kunchanapalli"/>
+          <property name="city"  value="Guntur"/>
+          <property name="state"  value="Andhra Pradesh"/> 
+     </bean>-->
+     
+   <bean id="add2"  class="com.dxc.springcoreapp.bean.Address" c:_0="1-4-3"  
+              c:_1="y-street"  c:_2="Vizag" c:_3="Andhra Pradesh"/>
+               <!--<bean id="address"  class="com.dxc.springcoreapp.bean.Address" c:_0="1-4-3"  
+              c:_1="yzw-street"  c:_2="Vijw" c:_3="Andhra Pradesh"/>-->
+         <!--   <property name="hno"  value="6-6-18"/>
+          <property name="streetName"  value="Temple Street"/>
+          <property name="city"  value="Vijayawada"/>
+          <property name="state"  value="Andhra Pradesh"/>
+     </bean>-->
+    
+   <!--<bean id="per1"  class="com.dxc.springcoreapp.bean.Person" autowire="byType">-->
+     <!--<bean id="per1"  class="com.dxc.springcoreapp.bean.Person" autowire="constructor">-->
+      <bean id="per1"  class="com.dxc.springcoreapp.bean.Person">
+       <property name="ssn"  value="7001"/>
+       <property  name="name" value="Koti"/>
+       <property name="address"  ref="add2"/>
+      <!--<constructor-arg name="address"  ref="add1"/>  -->
+    </bean>
+    
+    <bean id="emp1"  class="com.dxc.springcoreapp.bean.Employee"  parent="per1"  p:empId="7001"  p:salary="25000"/>
+    
+     <!--<bean class="com.dxc.springcoreapp.bean.MyBeanPostProcessor"/>
+     
+     <bean class="com.dxc.springcoreapp.bean.MyBeanPostProcess2"/>-->
+
+   <!--  <bean id="cty1"  class="com.dxc.springcoreapp.bean.Country" p:countryName="India"  p:continentName="Asia"  >
+         <property name="states">
+            <util:map  map-class="java.util.TreeMap">
+              <entry key="GOA"  value="GOA"/>
+              <entry key ="ARP"  value="Arunachal Pradesh"/>
+              <entry key ="DLH"  value="Delhi"/>
+              <entry key="ASM"   value="Assam"/>
+              <entry key="BHR"   value="Bihar"/>
+              <entry key="CHD"   value="Chandigarh"/>
+              <entry key="AP"   value="Andhra Pradesh"/>
+              </util:map>
+         </property>
+   </bean>  -->
+  
+  
+</beans>
+
+
+
+
+<!-- <util:list list-class="java.util.LinkedList">
+               <value>Delhi</value>
+               <value>Arunachal Pradesh</value>
+               <value>Kanyakumari</value>
+               <value>Andhra Pradesh</value>
+               <value>Haryana</value>
+               <value>Assam</value>
+               <value>Chandigarh</value>
+               <value>Goa</value>
+               <value>Gujarath</value>
+               <value>Kerala</value>
+               <value>Bihar</value>
+               <value>Karnataka</value>
+            </util:list>-->

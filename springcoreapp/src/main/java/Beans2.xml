@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:c="http://www.springframework.org/schema/c"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        ">
+     <context:component-scan base-package="com.dxc.springcoreapp"></context:component-scan>                  
+     <!-- <bean id="emp1" class="com.dxc.springcoreapp.bean.Employee" p:empId="101" p:eName="Koti" p:salary="45000" />
+     <bean id="emp2" class="com.dxc.springcoreapp.bean.Employee" p:empId="102" p:eName="RAJU" p:salary="35000" />
+     <bean id="emp3" class="com.dxc.springcoreapp.bean.Employee" p:empId="103" p:eName="Gowtham" p:salary="30000" />-->   
+     
+     <bean id="bfac1"  class="com.dxc.springcoreapp.bean.BookFactory"/>
+     
+     <bean id = "b1" class="com.dxc.springcoreapp.bean.Book " factory-bean="bfac1" factory-method="produceBook"   p:bookId="7002"   p:bookTitle="C++"/>                 
+
+
+      
+ <!--   <bean id="dept1"  class="com.dxc.springcoreapp.bean.Department" p:deptNo="10"  p:deptName="Sales">
+       <property name="employee">
+          <list>
+             <ref bean="emp3"/>
+             <ref bean="emp1"/>
+             <ref bean="emp2"/>
+          </list>
+       </property>
+   </bean> -->
+</beans>
