@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <welcome-file-list>
+    <welcome-file>home.html</welcome-file>
+  </welcome-file-list>
+  <context-param>
+  
+     <param-name>comPmt</param-name>
+     <param-value>i am a common parameter</param-value>
+  </context-param>
+  <!--<servlet>
+  <servlet-name>DS</servlet-name>
+  <servlet-class>com.dxc.fwapp.servlet.DateServlet</servlet-class>
+    
+    <init-param>
+    <param-name>first</param-name>
+    
+     <param-value>Servlet welcome you</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+        <servlet-name>DS</servlet-name>
+        <url-pattern>/DS</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+      <servlet-name>AS</servlet-name>
+      <servlet-class>com.dxc.fwapp.servlet.AuthenticateServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+       <servlet-name>AS</servlet-name>
+       <url-pattern>/AS</url-pattern>
+   </servlet-mapping>-->
+</web-app>
