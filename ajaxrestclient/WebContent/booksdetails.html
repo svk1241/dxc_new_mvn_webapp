@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+function showAllBooks()
+{
+	let tbl=document.getElementById("booksTable")
+	let requestObj=new XMLHttpRequest();
+	requestObj.onreadystatechange = function()
+	{
+		if(requestObj.readyState==4 && requestObj.status==200)
+			{
+			   var bookXml = new DOMParser().parseFromString(requestObj.responseText,"text/xml");
+			   var bookObj = bookXml.getElementsByTagName("books");
+			   for(var i=0;i<bookObj.length;i++)
+				   {
+				     var row= tbl.insertRow(i+1);
+				     for(var j=0;j<bookObj[i].childNodes.length;j++)
+				    	 {
+				    	    var cell = row.insertCell(j);
+				    	    cell.innerHTML = bookObj[i].childNodes[j].childNodes[0].nodeValue;
+				    	 }
+				   }
+			}
+	}
+	requestObj.open("GET","http://localhost:8089/springmvcrestapp/book/all",true);
+	requestObj.setRequestHeader("Accept","application/xml");
+	requestObj.send();
+	
+}
+</script>
+</head>
+<body>
+
+  <table width=50% align=center id="booksTable" border=1>
+   <caption>Available Book Details</caption>
+     <tr>
+      <th>Book Id</th>
+      <th>Book Title</th>
+      <th>Author</th>
+      <th>Publisher</th>
+      <th>Price</th>
+      <th>Subject</th>
+      <th>Total Copies</th>
+      <th>Avail Copies</th>
+   </tr>
+   </table>
+  
+   <button onclick="showAllBooks()">ShowAllBooks</button>
+ 
+</body>
+</html>
